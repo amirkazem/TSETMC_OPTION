@@ -40,7 +40,9 @@ To use the API directly, you can make HTTP requests to the following endpoints:
 
  ![image](https://github.com/user-attachments/assets/e1d36106-28f7-42b5-a3a7-f01e1f005642)
 
-
+        Amir Kazem
+        مولف :
+امیر کاظم
 
 #بسته اختیارات خرید و فروش بورس تهران
 ا        ین بسته یک API و یک رابط وب (با استفاده از Flask) برای تعامل با داده‌های اختیارات خرید و فروش بورس تهران (TSE) فراهم می‌کند. این امکان را به شما می‌دهد که داده‌های بازار بورس را به‌طور برنامه‌نویسی یا از طریق یک رابط کاربری ساده مشاهده و تحلیل کنید.
