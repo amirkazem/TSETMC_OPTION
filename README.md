@@ -37,5 +37,5 @@ To use the API directly, you can make HTTP requests to the following endpoints:
   GET /api/data_call: Fetch call option data.
   GET /api/data_put: Fetch put option data.
 
-          ![image](https://github.com/user-attachments/assets/e1d36106-28f7-42b5-a3a7-f01e1f005642)
+ ![image](https://github.com/user-attachments/assets/e1d36106-28f7-42b5-a3a7-f01e1f005642)
 
