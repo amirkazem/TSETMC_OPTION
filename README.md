@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/85e68712-23f2-4834-abb3-299fc830bfa3)# TSETMC_OPTION
+# TSETMC_OPTION
 Version1
 Tehran Stock Exchange Trading Options Package
 This package provides an API and a web interface (using Flask) for interacting with Tehran Stock Exchange (TSE) trading options data, including buy and sell permissions. It allows you to fetch, analyze, and visualize stock market data programmatically or through a user-friendly web interface.
@@ -20,6 +20,7 @@ Activate the Virtual Environment:
     venv\Scripts\activate
     On macOS/Linux:
      source venv/bin/activate
+![Uploading image.png…]()
      
 Install Dependencies:
     pip install -r requirements.txt
