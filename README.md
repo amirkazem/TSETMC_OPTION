@@ -1,3 +1,5 @@
+
+
 # TSETMC_OPTION
 Version1
 Tehran Stock Exchange Trading Options Package
@@ -20,7 +22,6 @@ Activate the Virtual Environment:
     venv\Scripts\activate
     On macOS/Linux:
      source venv/bin/activate
-![Uploading image.png…]()
      
 Install Dependencies:
     pip install -r requirements.txt
@@ -29,10 +30,12 @@ Running the Flask Web Application:
   After activating the virtual environment and installing dependencies, start the Flask application by running:
     flask run
   The web application will be accessible at http://127.0.0.1:5000/ in your browser, where you can interact with the dynamic tables and visualize the data.
-![Uploading image.png…]()
-
+        ![image](https://github.com/user-attachments/assets/80c8c6be-b3d5-40e9-9402-a14d63e59de4)
 Using the API:
 To use the API directly, you can make HTTP requests to the following endpoints:
 
   GET /api/data_call: Fetch call option data.
   GET /api/data_put: Fetch put option data.
+
+          ![image](https://github.com/user-attachments/assets/e1d36106-28f7-42b5-a3a7-f01e1f005642)
+
