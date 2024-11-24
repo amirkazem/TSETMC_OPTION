@@ -1,4 +1,4 @@
-# TSETMC_OPTION
+![image](https://github.com/user-attachments/assets/85e68712-23f2-4834-abb3-299fc830bfa3)# TSETMC_OPTION
 Version1
 Tehran Stock Exchange Trading Options Package
 This package provides an API and a web interface (using Flask) for interacting with Tehran Stock Exchange (TSE) trading options data, including buy and sell permissions. It allows you to fetch, analyze, and visualize stock market data programmatically or through a user-friendly web interface.
@@ -28,6 +28,7 @@ Running the Flask Web Application:
   After activating the virtual environment and installing dependencies, start the Flask application by running:
     flask run
   The web application will be accessible at http://127.0.0.1:5000/ in your browser, where you can interact with the dynamic tables and visualize the data.
+![Uploading image.png…]()
 
 Using the API:
 To use the API directly, you can make HTTP requests to the following endpoints:
