@@ -2,24 +2,25 @@
 Version1
 Tehran Stock Exchange Trading Options Package
 This package provides an API and a web interface (using Flask) for interacting with Tehran Stock Exchange (TSE) trading options data, including buy and sell permissions. It allows you to fetch, analyze, and visualize stock market data programmatically or through a user-friendly web interface.
-
+        
 Features:
-**Tehran Stock Exchange (TSE) Trading Options API: Access buy/sell options data via a RESTful API.
-**Web Interface: A Flask-based web application that dynamically displays trading options data in a table format, with search and export features.
-**Real-Time Data Updates: The API fetches real-time data, updating every 5 seconds for accuracy.
-**Excel Export: Export the trading data tables to Excel for further analysis.
+    **Tehran Stock Exchange (TSE) Trading Options API: Access buy/sell options data via a RESTful API.
+    **Web Interface: A Flask-based web application that dynamically displays trading options data in a table format, with search and export features.
+    **Real-Time Data Updates: The API fetches real-time data, updating every 5 seconds for accuracy.
+    **Excel Export: Export the trading data tables to Excel for further analysis.
 Setup Instructions:
 Prerequisites:
 Create a Virtual Environment:
-
-In your terminal, navigate to the project directory and run:
-    python -m venv venv
+        
+    In your terminal, navigate to the project directory and run:
+        python -m venv venv
 
 Activate the Virtual Environment:
     On Windows:
     venv\Scripts\activate
     On macOS/Linux:
      source venv/bin/activate
+     
 Install Dependencies:
     pip install -r requirements.txt
 
