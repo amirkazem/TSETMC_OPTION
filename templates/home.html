@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed DataTables with Column Search</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <style>
+        .tabs {
+            display: flex;
+            cursor: pointer;
+            padding: 10px;
+            background-color: #f4f4f4;
+        }
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .tab.active {
+            background-color: #ddd;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        table.dataTable thead th input {
+            width: 100%;
+        }
+                .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            width: 500px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: center;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .card-body {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .card-footer {
+            font-size: 0.9rem;
+            color: #777;
+            margin-top: 10px;
+        }
+
+        .card-footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .card-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab active" data-target="#dataCall">Call Option Data</div>
+        <div class="tab" data-target="#dataPut">Put Option Data</div>
+                <div class="tab" data-target="#info">مشخصات مولف</div>
+
+    </div>
+
+    <div id="dataCall" class="tab-content active">
+        <table id="tableCall" class="display" style="width:100%"></table>
+    </div>
+    <div id="info" class="tab-content centered">
+<div class="card centered">
+        <div class="card-header centered">
+            مشخصات مولف این محصول
+        </div>
+        <div class="card-body">
+            <p><strong>نام:</strong> امیر کاظم</p>
+            <p><strong>تحصیلات:</strong> استاد مهمان دانشگاه تهران و<br> دانش آموخته رشته اقتصاد مالی از دانشگاه صنعتی شریف</p>
+            <p><strong>علاقه‌مندی‌ها:</strong> برنامه‌نویسی، علم داده، توسعه وب در حوزه مالی</p>
+        </div>
+        <div class="card-footer">
+            <p>برای تماس با من <a href="amir.kazem@sharif.edu">ایمیل بزنید</a>.</p>
+        </div>
+    </div>
+
+    </div>
+    <div id="dataPut" class="tab-content">
+        <table id="tablePut" class="display" style="width:100%"></table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // تنظیم تب‌ها
+            $('.tab').click(function () {
+                $('.tab').removeClass('active');
+                $('.tab-content').removeClass('active');
+                $(this).addClass('active');
+                $($(this).data('target')).addClass('active');
+            });
+            function destroy_data_table(tableId){
+             try {
+
+                    const table1 = $(tableId).DataTable();
+                    if (table1){
+                                                table1.destroy();  // Destroy previous instance of DataTable
+
+                    };}catch (error){
+
+                    };
+            }
+
+            // تابع برای ساخت DataTable با قابلیت جستجوی ستونی
+            function createDataTable(tableId, apiUrl) {
+                $.get(apiUrl, function (response) {
+                    const columns = Object.keys(response.data[0]).map(key => ({ title: key, data: key }));
+
+                    const table = $(tableId).DataTable({
+                        data: response.data,
+                        columns: columns,
+                        destroy: true,
+                        dom: 'Bfrtip',
+                        buttons: ['excelHtml5']
+                    });
+
+                    // اضافه کردن فیلد جستجو برای هر ستون
+                    $(`${tableId} thead`).append('<tr></tr>');
+                    columns.forEach(() => {
+                        $(`${tableId} thead tr:last`).append('<th><input type="text" placeholder="Search" /></th>');
+                    });
+
+                    // اعمال جستجو برای هر ستون
+                    $(tableId).find('thead input').on('keyup change', function () {
+                        const columnIndex = $(this).parent().index();
+                        table.column(columnIndex).search(this.value).draw();
+                    });
+                });
+            }
+
+            createDataTable('#tableCall', '/api/data_call');
+            createDataTable('#tablePut', '/api/data_put');
+
+        });
+
+    </script>
+</body>
+</html>
