@@ -13,20 +13,19 @@ Prerequisites:
 Create a Virtual Environment:
 
 In your terminal, navigate to the project directory and run:
-  python -m venv venv
+    python -m venv venv
 
 Activate the Virtual Environment:
-    
     On Windows:
     venv\Scripts\activate
     On macOS/Linux:
      source venv/bin/activate
 Install Dependencies:
-  pip install -r requirements.txt
+    pip install -r requirements.txt
 
 Running the Flask Web Application:
   After activating the virtual environment and installing dependencies, start the Flask application by running:
-  flask run
+    flask run
   The web application will be accessible at http://127.0.0.1:5000/ in your browser, where you can interact with the dynamic tables and visualize the data.
 
 Using the API:
